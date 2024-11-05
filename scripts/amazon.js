@@ -1,4 +1,5 @@
 import { cart } from "../data/cart.js";
+import { products } from "../data/products.js";
 
 let productsHTML = "";
 products.forEach((product) => {
@@ -54,9 +55,11 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
 	button.addEventListener("click", () => {
 		//console.log("Added product");
 		// data attribute will enable us to select specific product.
+		//console.log(button.dataset)
 		//console.log(button.dataset.productName);
 		const productId = button.dataset.productId;
 		let matchingItem;
+		//checking if the product exist in the cart.
 		cart.forEach((item) => {
 			if (productId === item.productId) {
 				matchingItem = item;
