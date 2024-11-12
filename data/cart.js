@@ -1,4 +1,4 @@
-export const cart = [
+export let cart = [
 	{
 		//deduplicating the data. No need to save every property since we have the product id
 		productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -26,4 +26,14 @@ export function addToCart(productId) {
 			quantity: 1,
 		});
 	}
+}
+
+export function removeFromCart(productId) {
+	const newCart = [];
+	cart.forEach((cartItem) => {
+		if (cartItem.productId !== productId) {
+			newCart.push(cartItem);
+		}
+	});
+	cart = newCart;
 }
